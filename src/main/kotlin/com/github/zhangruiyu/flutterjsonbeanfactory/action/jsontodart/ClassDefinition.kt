@@ -60,6 +60,19 @@ class ClassDefinition(
         }
     }
 
+    fun _addCopyWithTypeDef(typeDef: TypeDefinition, sb: StringBuffer, suffix: String) {
+        if (typeDef.name == "Null") {
+            sb.append("dynamic")
+        } else {
+            sb.append(typeDef.name)
+            if (typeDef.subtype != null) {
+                //如果是list,就把名字修改成单数
+                sb.append("<${typeDef.subtype!!}>")
+            }
+            sb.append(suffix)
+        }
+    }
+
     //字段的集合
     val _fieldList: String
         get() {
