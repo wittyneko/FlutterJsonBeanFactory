@@ -195,7 +195,7 @@ class HelperClassGeneratorInfo(
                 }
 
                 // class list
-                return "data['$getJsonName'] =  $value;"
+                return "data['$getJsonName'] = $value;"
             }
             //是否是枚举
             isEnum -> {
