@@ -81,7 +81,7 @@ class FlutterBeanFactoryAction : AnAction() {
                         content.append("\n\n")
                         content.append("class JsonConvert {")
                         content.append("\n")
-                        content.append("${indent}static final Map<String, JsonConvertFunction> _convertFuncMap = {")
+                        content.append("${indent}static final Map<String, JsonConvertFunction> convertFuncMap = {")
                         content.append("\n")
                         allClass.forEach { itemClass ->
                             itemClass.first.classes.forEach { itemFile ->
@@ -197,7 +197,7 @@ class FlutterBeanFactoryAction : AnAction() {
                                     "${indent}${indent}if (json is List) {\n" +
                                     "${indent}${indent}${indent}return _getListChildType<M>(json.map((e) => e as Map<String, dynamic>).toList());\n" +
                                     "${indent}${indent}} else {\n" +
-                                    "${indent}${indent}${indent}return jsonConvert.asT<M>(json);\n" +
+                                    "${indent}${indent}${indent}return jsonConvert.convert<M>(json);\n" +
                                     "${indent}${indent}}\n" +
                                     "${indent}}"
                         )
